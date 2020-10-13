@@ -23,7 +23,7 @@ public class StudentRaycast : MonoBehaviour
         }
 
         //did the Raycast hit something
-        if (myRayHit.collider != null){
+        if (myRayHit.collider != null && myRayHit.collider.CompareTag("Untagged")){
             //randomly turn left or right
             float randomNumber = Random.Range(0, 100);
             if(randomNumber < 50){ // 50% chance to turn left
