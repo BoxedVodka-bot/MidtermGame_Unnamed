@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StudentRaycast : MonoBehaviour
 {
+    public Animator anim;
     void Update()
     {
         //always move forward (along x axis)
@@ -11,15 +12,17 @@ public class StudentRaycast : MonoBehaviour
         
         //ratcast in front of us and randomly turn left or right if there is a wall
         Ray2D myRay = new Ray2D(transform.position, transform.right);
-        float myRayDist = 0.8f;
+        float myRayDist = 1.5f;
         Debug.DrawRay(myRay.origin, myRay.direction*myRayDist, Color.yellow);
 
         RaycastHit2D myRayHit = Physics2D.Raycast(myRay.origin, myRay.direction, myRayDist);
 
         if(myRayHit.collider == null){
             transform.Translate(2f*Time.deltaTime, 0f, 0f);
+            anim.SetBool("stopping", false);
         }else if(myRayHit.collider.CompareTag("Player")){
             transform.Translate(0f, 0f, 0f);
+            anim.SetBool("stopping", true);
         }
 
         //did the Raycast hit something

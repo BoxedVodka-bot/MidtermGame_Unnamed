@@ -8,10 +8,12 @@ public class SceneChange1 : MonoBehaviour
     public string sceneToLoad;
     public GameObject dialogue;
     bool doorOpen = false;
+    public AudioSource myAudioSource;
      private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             doorOpen = true;
             dialogue.SetActive(true);
+            myAudioSource.Play();
         }
     }
 
@@ -19,6 +21,7 @@ public class SceneChange1 : MonoBehaviour
         if (Input.GetKey("space") && doorOpen == true){
                 SceneManager.LoadScene(sceneToLoad);
                 doorOpen = false;
+                myAudioSource.Play();
             }
 
     }

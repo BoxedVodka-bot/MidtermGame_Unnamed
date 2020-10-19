@@ -9,11 +9,13 @@ public class StudentDialogue2 : MonoBehaviour
     public GameObject dialogue3;
     bool next = false;
     bool next2 = false;
+    public AudioSource myAudioSource;
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Player"){
             next = true;
             dialogue.SetActive(true);
+            myAudioSource.Play();
         }
     }
 
@@ -23,12 +25,14 @@ public class StudentDialogue2 : MonoBehaviour
                 dialogue2.SetActive(true);
                 next = false;
                 next2 = true;
+                myAudioSource.Play();
                
         }
         if (Input.GetKeyDown("3") && next2 == true){
                 dialogue2.SetActive(false);
                 dialogue3.SetActive(true);
                 next2 = false;
+                myAudioSource.Play();
                 
         }
         

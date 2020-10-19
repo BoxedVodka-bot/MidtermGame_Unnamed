@@ -13,6 +13,7 @@ public GameObject dialogue;
     bool next2 = false;
     bool next3 = false;
     bool next4 = false;
+    public AudioSource myAudioSource;
 
     public static bool isText = false;
 
@@ -21,6 +22,7 @@ public GameObject dialogue;
             next = true;
             isText = true;
             dialogue.SetActive(true);
+            myAudioSource.Play();
         }
     }
 
@@ -32,6 +34,7 @@ public GameObject dialogue;
                 dialogue4.SetActive(false);
                 dialogue5.SetActive(false);
                 next = false;
+                myAudioSource.Play();
 
         }
         else if (Input.GetKeyDown("2") && isText == true){
@@ -41,6 +44,7 @@ public GameObject dialogue;
                 dialogue4.SetActive(false);
                 dialogue5.SetActive(false);
                 next = false;
+                myAudioSource.Play();
                
         }
         else if (Input.GetKeyDown("3") && isText == true){
@@ -50,6 +54,7 @@ public GameObject dialogue;
                 dialogue4.SetActive(true);
                 dialogue5.SetActive(false);
                 next = false;
+                myAudioSource.Play();
                
         }
         else if (Input.GetKeyDown("4") && isText == true){
@@ -59,6 +64,7 @@ public GameObject dialogue;
                 dialogue4.SetActive(false);
                 dialogue5.SetActive(true);
                 next = false;
+                myAudioSource.Play();
         }
     }
 

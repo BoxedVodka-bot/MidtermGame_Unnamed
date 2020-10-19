@@ -15,10 +15,14 @@ public class Dialogue : MonoBehaviour
     bool next3 = false;
     bool next4 = false;
 
+    public AudioSource myAudioSource;
+
+
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Player"){
             next = true;
             dialogue.SetActive(true);
+            myAudioSource.Play();
         }
     }
 
@@ -28,28 +32,27 @@ public class Dialogue : MonoBehaviour
                 dialogue2.SetActive(true);
                 next = false;
                 next2 = true;
-                //yield return new WaitUntil(() => Input.GetKeyDown("space"));
-        }else{
-
+                myAudioSource.Play();
         }
         if (Input.GetKeyDown("2") && next2 == true){
                 dialogue2.SetActive(false);
                 dialogue3.SetActive(true);
                 next2 = false;
                 next3 = true;
-                //yield return new WaitUntil(() => Input.GetKeyDown("space"));
+                myAudioSource.Play();
         }
         if (Input.GetKeyDown("3") && next3 == true){
                 dialogue3.SetActive(false);
                 dialogue4.SetActive(true);
                 next3 = false;
                 next4 = true;
-                //yield return new WaitUntil(() => Input.GetKeyDown("space"));
+                myAudioSource.Play();
         }
         if (Input.GetKeyDown("4") && next4 == true){
                 dialogue4.SetActive(false);
                 dialogue5.SetActive(true);
                 next4 = false;
+                myAudioSource.Play();
         }
     }
 

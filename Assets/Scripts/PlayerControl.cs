@@ -11,10 +11,15 @@ public class PlayerControl : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     private bool facingRight = true;
+
+    public Animator anim;
+    //public AudioSource myAudioSource;
+
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //myAudioSource = GetComponent<AudioSource>();
     }
      void Update()
     {
@@ -44,9 +49,11 @@ public class PlayerControl : MonoBehaviour
         
         if(inputHorizontal !=0 ){
             rb.velocity = new Vector2(inputHorizontal*moveSpeed, rb.velocity.y);
+            anim.SetFloat("Walking", Mathf.Abs(inputHorizontal));
         }
         if(inputVertical != 0){
             rb.velocity = new Vector2 (rb.velocity.x, inputVertical*moveSpeed);
+            anim.SetFloat("Walking", Mathf.Abs(inputVertical));
         }
         
     }
