@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DoortoSchool
   - Roomba
+  - Teacher
+  - Wall
   layers:
   - Default
   - TransparentFX
